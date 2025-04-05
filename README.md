@@ -1,8 +1,7 @@
-<h1 align="center">🚀 Launchpad: Reloaded</h1>
+<h1 align="center">🚀 TOR-W Launchpad</h1>
 <p align="center">
   <img src="LaunchpadBanner.png" alt="Cover" width="60%" height="60%"/>
-  <br><br>
-  <a href="https://discord.gg/FYYqJU2bvp" target="_blank"><img src="https://dcbadge.limes.pink/api/server/FYYqJU2bvp"/></a>
+  <br>
 </p>
 
 # ❔ About Us
