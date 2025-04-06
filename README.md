@@ -1,6 +1,6 @@
 <h1 align="center">🚀 TOR-W Launchpad</h1>
 <p align="center">
-  <img src="LaunchpadBanner.png" alt="Cover" width="60%" height="60%"/>
+  <img src="TORWLaunchpad.png" alt="Cover" width="60%" height="60%"/>
   <br>
 </p>
 
