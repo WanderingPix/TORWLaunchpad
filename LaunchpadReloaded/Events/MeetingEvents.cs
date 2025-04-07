@@ -1,7 +1,9 @@
 ﻿using System.Linq;
 using LaunchpadReloaded.Features.Voting;
 using LaunchpadReloaded.Modifiers;
+using LaunchpadReloaded.Modifiers.Game.Crewmate;
 using LaunchpadReloaded.Options;
+using LaunchpadReloaded.Options.Modifiers.Crewmate;
 using LaunchpadReloaded.Options.Roles.Crewmate;
 using LaunchpadReloaded.Roles.Crewmate;
 using LaunchpadReloaded.Utilities;
@@ -29,8 +31,15 @@ public static class MeetingEvents
     [RegisterEvent]
     public static void MeetingSelectEvent(MeetingSelectEvent @event)
     {
-        if ((SpecialVotes)@event.TargetId is SpecialVotes.Skip or SpecialVotes.Confirm ||
-            OptionGroupSingleton<VotingOptions>.Instance.AllowVotingForSamePerson)
+        var voteData = PlayerControl.LocalPlayer.GetVoteData();
+        if (!voteData || voteData.VotesRemaining == 0) return;
+        
+        var hasVotedFor = voteData.VotedFor((byte)@event.TargetId);
+        var mayorOverride = PlayerControl.LocalPlayer.HasModifier<MayorModifier>() &&
+                            OptionGroupSingleton<MayorOptions>.Instance.AllowVotingTwice;
+        var voteMultiple = mayorOverride || OptionGroupSingleton<VotingOptions>.Instance.AllowVotingForSamePerson;
+
+        if (voteMultiple && hasVotedFor)
         {
             @event.AllowSelect = true;
         }
@@ -42,6 +51,18 @@ public static class MeetingEvents
         if (@event.TargetId == (byte)SpecialVotes.Confirm)
         {
             @event.VoteData.SetRemainingVotes(0);
+            @event.Cancel();
+            return;
+        }
+        
+        var mayorOverride = @event.Player.HasModifier<MayorModifier>() &&
+                            OptionGroupSingleton<MayorOptions>.Instance.AllowVotingTwice;
+        var voteMultiple = mayorOverride || OptionGroupSingleton<VotingOptions>.Instance.AllowVotingForSamePerson;
+
+        if (@event.VoteData.VotesRemaining > 0 && voteMultiple && @event.VoteData.VotedFor(@event.TargetId))
+        {
+            @event.VoteData.DecreaseRemainingVotes(1);
+            @event.VoteData.VoteForPlayer(@event.TargetId);
             @event.Cancel();
         }
     }
@@ -66,15 +87,9 @@ public static class MeetingEvents
             }
 
             var voteData = player.Object.GetVoteData();
-
-            if (VotingTypesManager.SelectedType is VotingTypes.Multiple or VotingTypes.Combined)
+            if (voteData && VotingTypesManager.SelectedType is VotingTypes.Multiple or VotingTypes.Combined)
             {
                 voteData.VotesRemaining += VotingTypesManager.GetDynamicVotes() - 1;
-            }
-
-            if (player.Role is MayorRole)
-            {
-                voteData.VotesRemaining += (int)OptionGroupSingleton<MayorOptions>.Instance.ExtraVotes;
             }
         }
     }

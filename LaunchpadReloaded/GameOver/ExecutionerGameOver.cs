@@ -6,17 +6,17 @@ using UnityEngine;
 
 namespace LaunchpadReloaded.GameOver;
 
-public sealed class JesterGameOver : CustomGameOver
+public sealed class ExecutionerGameOver : CustomGameOver
 {
     public override bool VerifyCondition(PlayerControl playerControl, NetworkedPlayerInfo[] winners)
     {
-        return winners is [{ Role: JesterRole }];
+        return winners is [{ Role: ExecutionerRole }];
     }
 
     public override void AfterEndGameSetup(EndGameManager endGameManager)
     {
-        endGameManager.WinText.text = "Jester Wins!";
-        endGameManager.WinText.color = LaunchpadPalette.JesterColor;
-        endGameManager.BackgroundBar.material.SetColor(ShaderID.Color, LaunchpadPalette.JesterColor);
+        endGameManager.WinText.text = "<size=80%>Executioner Wins!</size>";
+        endGameManager.WinText.color = LaunchpadPalette.ExecutionerColor;
+        endGameManager.BackgroundBar.material.SetColor(ShaderID.Color, LaunchpadPalette.ExecutionerColor);
     }
 }
