@@ -1,5 +1,5 @@
 ﻿using LaunchpadReloaded.Features;
-using LaunchpadReloaded.Roles.Neutral;
+using LaunchpadReloaded.Roles.Outcast;
 using MiraAPI.GameEnd;
 using MiraAPI.Utilities;
 using UnityEngine;

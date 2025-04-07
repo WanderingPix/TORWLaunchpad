@@ -1,9 +1,9 @@
 ﻿using System;
-using LaunchpadReloaded.Roles.Neutral;
+using LaunchpadReloaded.Roles.Afterlife;
 using MiraAPI.Roles;
 using UnityEngine;
 
-namespace LaunchpadReloaded.Roles.Afterlife.Outcast;
+namespace LaunchpadReloaded.Roles.Outcast;
 
 public class OutcastGhostRole(IntPtr ptr) : RoleBehaviour(ptr), IOutcastRole, IAfterlifeRole
 {
@@ -27,6 +27,11 @@ public class OutcastGhostRole(IntPtr ptr) : RoleBehaviour(ptr), IOutcastRole, IA
     {
         playerControl.ClearTasks();
         PlayerTask.GetOrCreateTask<ImportantTextTask>(playerControl).Text = $"{Color.gray.ToTextColor()}You are dead, you cannot do tasks.\nThere is no way to win. You have lost.";
+    }
+
+    public override void AppendTaskHint(Il2CppSystem.Text.StringBuilder taskStringBuilder)
+    {
+        // remove default task hint
     }
 
     public override bool DidWin(GameOverReason gameOverReason)

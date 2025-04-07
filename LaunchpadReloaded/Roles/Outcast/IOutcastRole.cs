@@ -1,7 +1,7 @@
 ﻿using MiraAPI.Roles;
 using UnityEngine;
 
-namespace LaunchpadReloaded.Roles.Neutral;
+namespace LaunchpadReloaded.Roles.Outcast;
 
 public interface IOutcastRole : ICustomRole
 {

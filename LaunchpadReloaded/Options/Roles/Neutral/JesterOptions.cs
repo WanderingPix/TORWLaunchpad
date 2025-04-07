@@ -1,4 +1,4 @@
-﻿using LaunchpadReloaded.Roles.Neutral;
+﻿using LaunchpadReloaded.Roles.Outcast;
 using MiraAPI.GameOptions;
 using MiraAPI.GameOptions.Attributes;
 
