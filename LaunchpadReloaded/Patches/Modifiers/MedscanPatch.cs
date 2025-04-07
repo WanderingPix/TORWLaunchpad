@@ -1,6 +1,5 @@
 ﻿using HarmonyLib;
 using LaunchpadReloaded.Modifiers.Fun;
-using LaunchpadReloaded.Modifiers.Game;
 using MiraAPI.Modifiers;
 
 namespace LaunchpadReloaded.Patches.Modifiers;

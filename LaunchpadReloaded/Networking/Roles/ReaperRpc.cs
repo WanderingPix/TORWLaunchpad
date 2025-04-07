@@ -1,12 +1,12 @@
 ﻿using LaunchpadReloaded.Features;
 using LaunchpadReloaded.Options.Roles.Neutral;
+using LaunchpadReloaded.Roles.Neutral;
 using LaunchpadReloaded.Utilities;
 using MiraAPI.GameOptions;
 using Reactor.Networking.Attributes;
 using Reactor.Utilities;
 using System.Collections;
 using LaunchpadReloaded.GameOver;
-using LaunchpadReloaded.Roles.Outcast;
 using MiraAPI.GameEnd;
 using MiraAPI.Utilities;
 using Helpers = MiraAPI.Utilities.Helpers;

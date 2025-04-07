@@ -3,12 +3,13 @@ using Il2CppSystem.Text;
 using LaunchpadReloaded.Features;
 using LaunchpadReloaded.GameOver;
 using LaunchpadReloaded.Options.Roles.Neutral;
+using LaunchpadReloaded.Roles.Afterlife.Outcast;
 using MiraAPI.GameEnd;
 using MiraAPI.GameOptions;
 using MiraAPI.Roles;
 using UnityEngine;
 
-namespace LaunchpadReloaded.Roles.Outcast;
+namespace LaunchpadReloaded.Roles.Neutral;
 
 public class JesterRole(System.IntPtr ptr) : RoleBehaviour(ptr), IOutcastRole
 {

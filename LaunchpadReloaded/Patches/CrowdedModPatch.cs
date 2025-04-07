@@ -5,7 +5,7 @@ using HarmonyLib;
 
 namespace LaunchpadReloaded.Patches;
 
-//[HarmonyPatch]
+[HarmonyPatch]
 public static class CrowdedModPatch
 {
     public const string CrowdedId = "xyz.crowdedmods.crowdedmod";

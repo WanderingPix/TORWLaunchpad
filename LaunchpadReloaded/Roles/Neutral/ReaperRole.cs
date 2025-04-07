@@ -1,15 +1,16 @@
-using System.Text;
 using AmongUs.GameOptions;
-using Il2CppInterop.Runtime.Attributes;
 using LaunchpadReloaded.Features;
-using LaunchpadReloaded.GameOver;
 using LaunchpadReloaded.Options.Roles.Neutral;
-using MiraAPI.GameEnd;
 using MiraAPI.GameOptions;
 using MiraAPI.Roles;
+using System.Text;
+using Il2CppInterop.Runtime.Attributes;
+using LaunchpadReloaded.GameOver;
+using LaunchpadReloaded.Roles.Afterlife.Outcast;
+using MiraAPI.GameEnd;
 using UnityEngine;
 
-namespace LaunchpadReloaded.Roles.Outcast;
+namespace LaunchpadReloaded.Roles.Neutral;
 
 public class ReaperRole(System.IntPtr ptr) : RoleBehaviour(ptr), IOutcastRole
 {
