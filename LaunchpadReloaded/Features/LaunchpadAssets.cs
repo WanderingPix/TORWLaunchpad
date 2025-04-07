@@ -27,7 +27,7 @@ public static class LaunchpadAssets
     public static readonly LoadableAsset<Sprite> InstinctButton = new LoadableResourceAsset("LaunchpadReloaded.Resources.Instinct.png");
     public static readonly LoadableAsset<Sprite> InvestigateButton = new LoadableResourceAsset("LaunchpadReloaded.Resources.Investigate.png");
     public static readonly LoadableAsset<Sprite> DigVentButton = new LoadableResourceAsset("LaunchpadReloaded.Resources.DigVent.png");
-    public static readonly LoadableAsset<Sprite> JesterIcon = new LoadableBundleAsset<Sprite>("Jester.png", Bundle);
+    public static readonly LoadableAsset<Sprite> JesterIcon = new LoadableResourceAsset("LaunchpadReloaded.Resources.Jester.png");
     public static readonly LoadableAsset<Sprite> MapButton = new LoadableBundleAsset<Sprite>("Map.png", Bundle);
     public static readonly LoadableAsset<Sprite> ReviveButton = new LoadableBundleAsset<Sprite>("Revive.png", Bundle);
     public static readonly LoadableAsset<Sprite> ScannerButton = new LoadableBundleAsset<Sprite>("Place_Scanner.png", Bundle);
@@ -69,6 +69,7 @@ public static class LaunchpadAssets
     public static readonly LoadableAsset<Sprite> DeadlockTarget = new LoadableResourceAsset("LaunchpadReloaded.Resources.DeadlockTarget.png");
     public static readonly LoadableAsset<Sprite> DeadlockVignette = new LoadableResourceAsset("LaunchpadReloaded.Resources.DeadlockVignette.png");
     public static readonly LoadableAsset<Sprite> FrozenBodyOverlay = new LoadableResourceAsset("LaunchpadReloaded.Resources.BodyFrozenOverlay.png");
+    public static readonly LoadableAsset<Sprite> DarkFairyButton = new LoadableResourceAsset("LaunchpadReloaded.Resources.Darken.png");
 
     // Sounds
     public static readonly LoadableAsset<AudioClip> BeepSound = new LoadableBundleAsset<AudioClip>("Beep.wav", Bundle);
