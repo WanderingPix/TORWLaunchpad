@@ -14,11 +14,10 @@ using Reactor.Utilities;
 
 namespace LaunchpadReloaded;
 
-[BepInAutoPlugin("dev.xtracube.launchpad", "LaunchpadReloaded")]
+[BepInAutoPlugin("dev.xtracube.launchpad", "TOR-W Launchpad")]
 [BepInProcess("Among Us.exe")]
 [BepInDependency(ReactorPlugin.Id)]
 [BepInDependency(MiraApiPlugin.Id)]
-[BepInDependency(CrowdedModPatch.CrowdedId, BepInDependency.DependencyFlags.SoftDependency)]
 [ReactorModFlags(ModFlags.RequireOnAllClients)]
 public partial class LaunchpadReloadedPlugin : BasePlugin, IMiraPlugin
 {
@@ -28,14 +27,13 @@ public partial class LaunchpadReloadedPlugin : BasePlugin, IMiraPlugin
         return Config;
     }
 
-    public string OptionsTitleText => "Launchpad";
+    public string OptionsTitleText => "TOR-W\nLaunchpad";
 
     public override void Load()
     {
         Harmony.PatchAll();
 
-        ReactorCredits.Register("Launchpad", Version.Truncate(11, "") ?? Version, true, ReactorCredits.AlwaysShow);
-
+        ReactorCredits.Register("TOR-W Launchpad", Version.Truncate(11, "") ?? Version, true, ReactorCredits.AlwaysShow);
         LaunchpadSettings.Initialize();
 
         Config.Save();

@@ -1,7 +1,8 @@
 <h1 align="center">🚀 TOR-W Launchpad</h1>
 <p align="center">
   <img src="TORWLaunchpad.png" alt="Cover" width="60%" height="60%"/>
-  <br>
+  <br><br>
+  <a href="https://discord.com/invite/HczqtuBfcu" target="_blank"><img src="https://dcbadge.limes.pink/api/server/HczqtuBfcu"/></a>
 </p>
 
 # ❔ About Us
