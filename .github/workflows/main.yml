@@ -1,41 +1,26 @@
 name: CI
 
-on: ["workflow_dispatch", "push", "pull_request"]
+on: workflow_dispatch
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
         with:
           submodules: true
 
-      - uses: actions/cache@v4
-        with:
-          path: |
-            ~/.nuget/packages
-            ~/.cache/bepinex
-          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-nuget-
-
       - name: Setup .NET
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: 8.0.x
+          dotnet-version: 6.x
 
       - name: Run the Cake script
-        uses: cake-build/cake-action@v3
+        uses: cake-build/cake-action@v2
         with:
           verbosity: Diagnostic
 
       - uses: actions/upload-artifact@v4
         with:
           name: LaunchpadReloaded.dll
-          path: LaunchpadReloaded/bin/Release/LaunchpadReloaded.dll
-
-      - uses: softprops/action-gh-release@v2
-        if: github.ref_type == 'tag'
-        with:
-          draft: true
-          files: LaunchpadReloaded/bin/Release/LaunchpadReloaded.dll
+          path: LaunchpadReloaded/bin/Release/net6.0/LaunchpadReloaded.dll

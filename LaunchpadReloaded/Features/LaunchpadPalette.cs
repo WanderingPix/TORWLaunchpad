@@ -24,5 +24,6 @@ public static class LaunchpadPalette
     // Neutrals
     public static readonly Color JesterColor = new Color32(170, 51, 106, 255);
     public static readonly Color ReaperColor = new Color32(81, 131, 142, 255);
-    public static readonly Color ExecutionerColor = new Color32(221, 176, 152, 255);
+    public static readonly Color DarkFairyColor = new Color32(44, 0, 110, 255);
+    public static readonly Color TraitorColor = new Color32(89, 18, 18, 255);
 }

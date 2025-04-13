@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace LaunchpadReloaded.Roles.Afterlife.Outcast;
 
-public class OutcastGhostRole(IntPtr ptr) : RoleBehaviour(ptr), IOutcastRole, IAfterlifeRole
+public class OutcastGhostRole(IntPtr ptr) : RoleBehaviour(ptr), INeutralRole, IAfterlifeRole
 {
     public string RoleName => "Outcast Ghost";
     public string RoleDescription => string.Empty;
@@ -14,7 +14,6 @@ public class OutcastGhostRole(IntPtr ptr) : RoleBehaviour(ptr), IOutcastRole, IA
 
     public CustomRoleConfiguration Configuration => new(this)
     {
-        HideSettings = true,
         RoleHintType = RoleHintType.TaskHint,
         TasksCountForProgress = false,
         CanUseVent = false,

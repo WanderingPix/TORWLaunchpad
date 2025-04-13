@@ -15,14 +15,12 @@ public class GameModifierOptions : AbstractOptionGroup
     [ModdedNumberOption("Giant Chance", 0f, 100f, 10f, suffixType: MiraNumberSuffixes.Percent)]
     public float GiantChance { get; set; } = 0f;
 
-    [ModdedNumberOption("Smol Chance", 0f, 100f, 10f, suffixType: MiraNumberSuffixes.Percent)]
-    public float SmolChance { get; set; } = 0f;
+    [ModdedNumberOption("Child Chance", 0f, 100f, 10f, suffixType: MiraNumberSuffixes.Percent)]
+    public float ChildChance { get; set; } = 0f;
 
-    [ModdedNumberOption("Gravity Field Chance", 0f, 100f, 10f, suffixType: MiraNumberSuffixes.Percent)]
-    public float GravityChance { get; set; } = 0f;
-
-    public ModdedNumberOption GravityFieldRadius { get; } = new("Gravity Field Radius", 2f, 0.5f, 10f, 0.5f, MiraNumberSuffixes.None)
-    {
-        Visible = () => OptionGroupSingleton<GameModifierOptions>.Instance.GravityChance > 0,
-    };
+    [ModdedNumberOption("VIP Chance", 0f, 100f, 10f, suffixType: MiraNumberSuffixes.Percent)]
+    public float KingChance { get; set; } = 0f;
+    
+    [ModdedNumberOption("Flash Chance", 0f, 100f, 10f, suffixType: MiraNumberSuffixes.Percent)]
+    public float FlashChance { get; set; } = 0f;
 }

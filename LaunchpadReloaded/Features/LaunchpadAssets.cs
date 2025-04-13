@@ -18,58 +18,58 @@ public static class LaunchpadAssets
     // Sprites
     public static readonly LoadableAsset<Sprite> BlankButton = new LoadableBundleAsset<Sprite>("BlankButton", Bundle);
     public static readonly LoadableAsset<Sprite> CallButton = new LoadableBundleAsset<Sprite>("CallMeeting.png", Bundle);
-    public static readonly LoadableAsset<Sprite> DissectButton = new LoadableResourceAsset("LaunchpadReloaded.Resources.Dissect.png");
+    public static readonly LoadableAsset<Sprite> DissectButton = new LoadableResourceAsset("TORWLaunchpad.Resources.Dissect.png");
     public static readonly LoadableAsset<Sprite> DragButton = new LoadableBundleAsset<Sprite>("Drag.png", Bundle);
     public static readonly LoadableAsset<Sprite> DropButton = new LoadableBundleAsset<Sprite>("Drop.png", Bundle);
     public static readonly LoadableAsset<Sprite> HackButton = new LoadableBundleAsset<Sprite>("Hack.png", Bundle);
     public static readonly LoadableAsset<Sprite> HideButton = new LoadableBundleAsset<Sprite>("Clean.png", Bundle);
-    public static readonly LoadableAsset<Sprite> InjectButton = new LoadableResourceAsset("LaunchpadReloaded.Resources.Inject.png");
-    public static readonly LoadableAsset<Sprite> InstinctButton = new LoadableResourceAsset("LaunchpadReloaded.Resources.Instinct.png");
-    public static readonly LoadableAsset<Sprite> InvestigateButton = new LoadableResourceAsset("LaunchpadReloaded.Resources.Investigate.png");
-    public static readonly LoadableAsset<Sprite> DigVentButton = new LoadableResourceAsset("LaunchpadReloaded.Resources.DigVent.png");
-    public static readonly LoadableAsset<Sprite> JesterIcon = new LoadableResourceAsset("LaunchpadReloaded.Resources.Jester.png");
+    public static readonly LoadableAsset<Sprite> InjectButton = new LoadableResourceAsset("TORWLaunchpad.Resources.Inject.png");
+    public static readonly LoadableAsset<Sprite> InstinctButton = new LoadableResourceAsset("TORWLaunchpad.Resources.Instinct.png");
+    public static readonly LoadableAsset<Sprite> InvestigateButton = new LoadableResourceAsset("TORWLaunchpad.Resources.Investigate.png");
+    public static readonly LoadableAsset<Sprite> DigVentButton = new LoadableResourceAsset("TORWLaunchpad.Resources.DigVent.png");
+    public static readonly LoadableAsset<Sprite> JesterIcon = new LoadableResourceAsset("TORWLaunchpad.Resources.Jester.png");
     public static readonly LoadableAsset<Sprite> MapButton = new LoadableBundleAsset<Sprite>("Map.png", Bundle);
     public static readonly LoadableAsset<Sprite> ReviveButton = new LoadableBundleAsset<Sprite>("Revive.png", Bundle);
     public static readonly LoadableAsset<Sprite> ScannerButton = new LoadableBundleAsset<Sprite>("Place_Scanner.png", Bundle);
     public static readonly LoadableAsset<Sprite> ShootButton = new LoadableBundleAsset<Sprite>("Shoot.png", Bundle);
     public static readonly LoadableAsset<Sprite> TrackButton = new LoadableBundleAsset<Sprite>("Track.png", Bundle);
     public static readonly LoadableAsset<Sprite> ZoomButton = new LoadableBundleAsset<Sprite>("Zoom.png", Bundle);
-    public static readonly LoadableAsset<Sprite> SealButton = new LoadableResourceAsset("LaunchpadReloaded.Resources.SealVent.png");
-    public static readonly LoadableAsset<Sprite> SwapButton = new LoadableResourceAsset("LaunchpadReloaded.Resources.Swap.png");
-    public static readonly LoadableAsset<Sprite> FreezeButton = new LoadableResourceAsset("LaunchpadReloaded.Resources.Freeze.png");
-    public static readonly LoadableAsset<Sprite> SoulButton = new LoadableResourceAsset("LaunchpadReloaded.Resources.StealSoul.png");
-    public static readonly LoadableAsset<Sprite> GambleButton = new LoadableResourceAsset("LaunchpadReloaded.Resources.Gamble.png");
-    public static readonly LoadableAsset<Sprite> DeadlockButton = new LoadableResourceAsset("LaunchpadReloaded.Resources.Deadlock.png");
+    public static readonly LoadableAsset<Sprite> SealButton = new LoadableResourceAsset("TORWLaunchpad.Resources.SealVent.png");
+    public static readonly LoadableAsset<Sprite> SwapButton = new LoadableResourceAsset("TORWLaunchpad.Resources.Swap.png");
+    public static readonly LoadableAsset<Sprite> FreezeButton = new LoadableResourceAsset("TORWLaunchpad.Resources.Freeze.png");
+    public static readonly LoadableAsset<Sprite> SoulButton = new LoadableResourceAsset("TORWLaunchpad.Resources.StealSoul.png");
+    public static readonly LoadableAsset<Sprite> GambleButton = new LoadableResourceAsset("TORWLaunchpad.Resources.Gamble.png");
+    public static readonly LoadableAsset<Sprite> DeadlockButton = new LoadableResourceAsset("TORWLaunchpad.Resources.Deadlock.png");
 
-    public static readonly LoadableAsset<Sprite> NotepadSprite = new LoadableResourceAsset("LaunchpadReloaded.Resources.NotepadButton.png");
-    public static readonly LoadableAsset<Sprite> NotepadActiveSprite = new LoadableResourceAsset("LaunchpadReloaded.Resources.NotepadButtonActive.png");
+    public static readonly LoadableAsset<Sprite> NotepadSprite = new LoadableResourceAsset("TORWLaunchpad.Resources.NotepadButton.png");
+    public static readonly LoadableAsset<Sprite> NotepadActiveSprite = new LoadableResourceAsset("TORWLaunchpad.Resources.NotepadButtonActive.png");
 
     // Banner Sprites
-    public static readonly LoadableAsset<Sprite> CaptainBanner = new LoadableResourceAsset("LaunchpadReloaded.Resources.Banners.Captain.png");
-    public static readonly LoadableAsset<Sprite> DetectiveBanner = new LoadableResourceAsset("LaunchpadReloaded.Resources.Banners.Detective.png");
-    public static readonly LoadableAsset<Sprite> HackerBanner = new LoadableResourceAsset("LaunchpadReloaded.Resources.Banners.Hacker.png");
-    public static readonly LoadableAsset<Sprite> JanitorBanner = new LoadableResourceAsset("LaunchpadReloaded.Resources.Banners.Janitor.png");
-    public static readonly LoadableAsset<Sprite> JesterBanner = new LoadableResourceAsset("LaunchpadReloaded.Resources.Banners.Jester.png");
-    public static readonly LoadableAsset<Sprite> MayorBanner = new LoadableResourceAsset("LaunchpadReloaded.Resources.Banners.Mayor.png");
-    public static readonly LoadableAsset<Sprite> MedicBanner = new LoadableResourceAsset("LaunchpadReloaded.Resources.Banners.Medic.png");
-    public static readonly LoadableAsset<Sprite> SheriffBanner = new LoadableResourceAsset("LaunchpadReloaded.Resources.Banners.Sheriff.png");
-    public static readonly LoadableAsset<Sprite> SurgeonBanner = new LoadableResourceAsset("LaunchpadReloaded.Resources.Banners.Surgeon.png");
+    public static readonly LoadableAsset<Sprite> CaptainBanner = new LoadableResourceAsset("TORWLaunchpad.Resources.Banners.Captain.png");
+    public static readonly LoadableAsset<Sprite> DetectiveBanner = new LoadableResourceAsset("TORWLaunchpad.Resources.Banners.Detective.png");
+    public static readonly LoadableAsset<Sprite> HackerBanner = new LoadableResourceAsset("TORWLaunchpad.Resources.Banners.Hacker.png");
+    public static readonly LoadableAsset<Sprite> JanitorBanner = new LoadableResourceAsset("TORWLaunchpad.Resources.Banners.Janitor.png");
+    public static readonly LoadableAsset<Sprite> JesterBanner = new LoadableResourceAsset("TORWLaunchpad.Resources.Banners.Jester.png");
+    public static readonly LoadableAsset<Sprite> MayorBanner = new LoadableResourceAsset("TORWLaunchpad.Resources.Banners.Mayor.png");
+    public static readonly LoadableAsset<Sprite> MedicBanner = new LoadableResourceAsset("TORWLaunchpad.Resources.Banners.Medic.png");
+    public static readonly LoadableAsset<Sprite> SheriffBanner = new LoadableResourceAsset("TORWLaunchpad.Resources.Banners.Sheriff.png");
+    public static readonly LoadableAsset<Sprite> SurgeonBanner = new LoadableResourceAsset("TORWLaunchpad.Resources.Banners.Surgeon.png");
 
     // Object Sprites
-    public static readonly LoadableAsset<Sprite> Arrow = new LoadableResourceAsset("LaunchpadReloaded.Resources.Arrow.png");
-    public static readonly LoadableAsset<Sprite> Bone = new LoadableResourceAsset("LaunchpadReloaded.Resources.Bone.png");
-    public static readonly LoadableAsset<Sprite> Footstep = new LoadableResourceAsset("LaunchpadReloaded.Resources.Footstep.png");
-    public static readonly LoadableAsset<Sprite> VentTape = new LoadableResourceAsset("LaunchpadReloaded.Resources.VentTape.png");
-    public static readonly LoadableAsset<Sprite> VentTapePolus = new LoadableResourceAsset("LaunchpadReloaded.Resources.VentTapePolus.png");
+    public static readonly LoadableAsset<Sprite> Arrow = new LoadableResourceAsset("TORWLaunchpad.Resources.Arrow.png");
+    public static readonly LoadableAsset<Sprite> Bone = new LoadableResourceAsset("TORWLaunchpad.Resources.Bone.png");
+    public static readonly LoadableAsset<Sprite> Footstep = new LoadableResourceAsset("TORWLaunchpad.Resources.Footstep.png");
+    public static readonly LoadableAsset<Sprite> VentTape = new LoadableResourceAsset("TORWLaunchpad.Resources.VentTape.png");
+    public static readonly LoadableAsset<Sprite> VentTapePolus = new LoadableResourceAsset("TORWLaunchpad.Resources.VentTapePolus.png");
     public static readonly LoadableAsset<Sprite> KnifeHandSprite = new LoadableBundleAsset<Sprite>("KnifeHand.png", Bundle);
     public static readonly LoadableAsset<Sprite> NodeSprite = new LoadableBundleAsset<Sprite>("Node.png", Bundle);
     public static readonly LoadableAsset<Sprite> ScannerSprite = new LoadableBundleAsset<Sprite>("Scanner.png", Bundle);
 
-    public static readonly LoadableAsset<Sprite> DeadlockHonor = new LoadableResourceAsset("LaunchpadReloaded.Resources.DeadlockHonor.png");
-    public static readonly LoadableAsset<Sprite> DeadlockTarget = new LoadableResourceAsset("LaunchpadReloaded.Resources.DeadlockTarget.png");
-    public static readonly LoadableAsset<Sprite> DeadlockVignette = new LoadableResourceAsset("LaunchpadReloaded.Resources.DeadlockVignette.png");
-    public static readonly LoadableAsset<Sprite> FrozenBodyOverlay = new LoadableResourceAsset("LaunchpadReloaded.Resources.BodyFrozenOverlay.png");
-    public static readonly LoadableAsset<Sprite> DarkFairyButton = new LoadableResourceAsset("LaunchpadReloaded.Resources.Darken.png");
+    public static readonly LoadableAsset<Sprite> DeadlockHonor = new LoadableResourceAsset("TORWLaunchpad.Resources.DeadlockHonor.png");
+    public static readonly LoadableAsset<Sprite> DeadlockTarget = new LoadableResourceAsset("TORWLaunchpad.Resources.DeadlockTarget.png");
+    public static readonly LoadableAsset<Sprite> DeadlockVignette = new LoadableResourceAsset("TORWLaunchpad.Resources.DeadlockVignette.png");
+    public static readonly LoadableAsset<Sprite> FrozenBodyOverlay = new LoadableResourceAsset("TORWLaunchpad.Resources.BodyFrozenOverlay.png");
+    public static readonly LoadableAsset<Sprite> TraitorIcon = new LoadableResourceAsset("TORWLaunchpad.Resources.Traitor.png");
 
     // Sounds
     public static readonly LoadableAsset<AudioClip> BeepSound = new LoadableBundleAsset<AudioClip>("Beep.wav", Bundle);
@@ -101,5 +101,5 @@ public static class LaunchpadAssets
     public static readonly LoadableAsset<GameObject> NodeGame = new LoadableBundleAsset<GameObject>("NodeMinigame", Bundle);
 
     public static readonly LoadableAsset<GameObject> PlayerTags = new LoadableBundleAsset<GameObject>("PlayerTags", Bundle);
-    public static readonly LoadableAsset<Sprite> TagBackground = new LoadableResourceAsset("LaunchpadReloaded.Resources.TagBackground.png");
+    public static readonly LoadableAsset<Sprite> TagBackground = new LoadableResourceAsset("TORWLaunchpad.Resources.TagBackground.png");
 }
