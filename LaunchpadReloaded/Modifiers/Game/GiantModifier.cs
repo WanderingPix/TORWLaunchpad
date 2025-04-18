@@ -10,6 +10,12 @@ public sealed class GiantModifier : LPModifier
     public override int GetAssignmentChance() => (int)OptionGroupSingleton<GameModifierOptions>.Instance.GiantChance;
     public override int GetAmountPerGame() => 1;
     public override bool IsModifierValidOn(RoleBehaviour role) => base.IsModifierValidOn(role) && !role.Player.HasModifier<ChildModifier>();
+    
+    public override string GetDescription()
+    {
+        return "Your size is icreased and you are slower than other players!";
+    }
+    
     public override void OnActivate()
     {
         if (Player != null)

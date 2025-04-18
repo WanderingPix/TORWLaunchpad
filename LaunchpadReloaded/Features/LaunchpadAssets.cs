@@ -70,6 +70,8 @@ public static class LaunchpadAssets
     public static readonly LoadableAsset<Sprite> DeadlockVignette = new LoadableResourceAsset("TORWLaunchpad.Resources.DeadlockVignette.png");
     public static readonly LoadableAsset<Sprite> FrozenBodyOverlay = new LoadableResourceAsset("TORWLaunchpad.Resources.BodyFrozenOverlay.png");
     public static readonly LoadableAsset<Sprite> TraitorIcon = new LoadableResourceAsset("TORWLaunchpad.Resources.Traitor.png");
+    public static readonly LoadableAsset<Sprite> TeleportButton = new LoadableResourceAsset("TORWLaunchpad.Resources.TeleportButton.png");
+    
 
     // Sounds
     public static readonly LoadableAsset<AudioClip> BeepSound = new LoadableBundleAsset<AudioClip>("Beep.wav", Bundle);

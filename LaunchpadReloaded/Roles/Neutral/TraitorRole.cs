@@ -40,7 +40,7 @@ public class TraitorRole(System.IntPtr ptr) : RoleBehaviour(ptr), INeutralRole
     {
         Name = "ExeTarget",
         Text = "Target",
-        Color = LaunchpadPalette.TraitorColor.LightenColor(),
+        Color = LaunchpadPalette.TargetColor,
         IsLocallyVisible = _ => true,
     };
 
@@ -82,7 +82,7 @@ public class TraitorRole(System.IntPtr ptr) : RoleBehaviour(ptr), INeutralRole
 
     private static PlayerControl GetValidTarget(PlayerControl source)
     {
-        return Helpers.GetAlivePlayers().Where(x => x != source).ToArray().Random()!;
+        return Helpers.GetAlivePlayers().Where(x => x.Data.Role.IsImpostor).Random()!;
     }
 
     public void OnTargetDeath()
