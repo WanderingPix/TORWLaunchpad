@@ -1,21 +1,19 @@
-using LaunchpadReloaded.Buttons.Crewmate;
 using LaunchpadReloaded.Features;
-using MiraAPI.Hud;
 using MiraAPI.Roles;
 using System;
 using UnityEngine;
 
 namespace LaunchpadReloaded.Roles.Crewmate;
 
-public class TeleporterRole(IntPtr ptr) : CrewmateRole(ptr), ICustomRole
+public class TeleporterRole(IntPtr ptr) : RoleBehaviour(ptr), ICrewmateRole
 {
     public string RoleName => "Teleporter";
     public string RoleLongDescription => "Zoom out and teleport across the map!";
     public string RoleDescription => RoleLongDescription;
     public Color RoleColor => LaunchpadPalette.TeleporterColor;
-    public ModdedRoleTeams Team => ModdedRoleTeams.Crewmate;
+    public override bool IsDead => false;
 
-    public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
+    public CustomRoleConfiguration Configuration => new(this)
     {
         OptionsScreenshot = LaunchpadAssets.CaptainBanner,
         Icon = LaunchpadAssets.TeleportButton,

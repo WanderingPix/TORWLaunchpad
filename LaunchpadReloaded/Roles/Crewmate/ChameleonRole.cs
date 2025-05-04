@@ -5,13 +5,13 @@ using TMPro;
 
 namespace LaunchpadReloaded.Roles.Crewmate;
 
-public class ChameleonRole(IntPtr ptr) : CrewmateRole(ptr), ICustomRole
+public class ChameleonRole(IntPtr ptr) : RoleBehaviour(ptr), ICrewmateRole
 {
     public string RoleName => "Chameleon";
     public string RoleLongDescription => "Stay invisible while not moving.";
     public string RoleDescription => RoleLongDescription;
     public Color RoleColor => Palette.AcceptedGreen;
-    public ModdedRoleTeams Team => ModdedRoleTeams.Crewmate;
+    public override bool IsDead => false;
 
     public CustomRoleConfiguration Configuration => new(this)
     {

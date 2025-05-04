@@ -7,13 +7,13 @@ using UnityEngine;
 
 namespace LaunchpadReloaded.Roles.Impostor;
 
-public class SwapshifterRole(IntPtr ptr) : ImpostorRole(ptr), ICustomRole
+public class SwapshifterRole(IntPtr ptr) : RoleBehaviour(ptr), IImpostorRole
 {
     public string RoleName => "Swapshifter";
     public string RoleDescription => "Shift and swap into other players.";
     public string RoleLongDescription => RoleDescription + "\nThis can help you frame players and disguise kills.";
     public Color RoleColor => LaunchpadPalette.SwapperColor;
-    public ModdedRoleTeams Team => ModdedRoleTeams.Impostor;
+    public override bool IsDead => false;
     public CustomRoleConfiguration Configuration => new(this)
     {
         Icon = LaunchpadAssets.SwapButton,

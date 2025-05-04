@@ -1,82 +1,93 @@
-using AmongUs.Data;
-using AmongUs.Data.Player;
-using Assets.InnerNet;
-using BepInEx.Unity.IL2CPP.Utils.Collections;
-using Il2CppInterop.Runtime.InteropTypes.Arrays;
-using LibCpp2IL;
 using System;
-using System.Collections;
+using System.Collections.Generic;
 using HarmonyLib;
-using System.IO;
-using System.Text.Json;
 using UnityEngine;
-using UnityEngine.Networking;
+using UnityEngine.UI;
+using static UnityEngine.UI.Button;
+using Object = UnityEngine.Object;
+using UnityEngine.SceneManagement;
+using AmongUs.Data;
+using Assets.InnerNet;
+using System.Linq;
 
-[HarmonyPatch(typeof(AnnouncementPopUp), nameof(AnnouncementPopUp.Init))]
-public class ModNewsPatch
+namespace LaunchpadReloaded.Modules
 {
-    static bool downloaded = false;
-    static string ModNewsURL = "https://raw.githubusercontent.com/EnhancedNetwork/TownofHost-Enhanced/refs/heads/main/Resources/Announcements/modNews-";
-    
-    // This method runs after the original method
-    [HarmonyPostfix]
-    public static void Postfix(ref Il2CppSystem.Collections.IEnumerator __result)
+    [HarmonyPatch(typeof(MainMenuManager), nameof(MainMenuManager.Start))]
+    public class MainMenuPatch
     {
-        static IEnumerator FetchBlacklist()
+        private static AnnouncementPopUp? popUp;
+
+        private static void Prefix(MainMenuManager __instance)
         {
-            if (downloaded)
-                yield break;
 
-            downloaded = true;
+            var template = GameObject.Find("ExitGameButton");
+            var template2 = GameObject.Find("CreditsButton");
+            if (template == null || template2 == null) return;
+            template.transform.localScale = new Vector3(0.55f, 0.84f, 0.84f);
+            template.GetComponent<AspectPosition>().anchorPoint = new Vector2(0.61f, 0.5f);
 
-            // Determine the language for the news
-            ModNewsURL += TranslationController.Instance.currentLanguage.languageID switch
+            template2.transform.localScale = new Vector3(0.55f, 0.84f, 0.84f);
+            template2.GetComponent<AspectPosition>().anchorPoint = new Vector2(0.388f, 0.5f);
+
+            // mod credits button, ig this makes the button, idgaf
+            if (template == null) return;
+            var creditsButton = Object.Instantiate(template, template.transform.parent);
+
+            creditsButton.transform.localScale = new Vector3(0.55f, 0.84f, 0.84f);
+            creditsButton.GetComponent<AspectPosition>().anchorPoint = new Vector2(0.5f, 0.5f);
+
+            var textCreditsButton = creditsButton.transform.GetComponentInChildren<TMPro.TMP_Text>();
+            __instance.StartCoroutine(Effects.Lerp(0.5f,
+                new System.Action<float>((p) => { textCreditsButton.SetText("Mod Credits"); })));
+            PassiveButton passiveCreditsButton = creditsButton.GetComponent<PassiveButton>();
+
+            passiveCreditsButton.OnClick = new Button.ButtonClickedEvent();
+
+            passiveCreditsButton.OnClick.AddListener((System.Action)delegate
             {
-                SupportedLangs.German => "de_DE.json",
-                SupportedLangs.Latam => "es_419.json",
-                SupportedLangs.Spanish => "es_ES.json",
-                SupportedLangs.French => "fr_FR.json",
-                SupportedLangs.Italian => "it_IT.json",
-                _ => "en_US.json", // Default to English
-            };
+                // do stuff, it also collides with the normal au announcements after going to create a lobby, or just after opening the au news button
+                if (popUp != null) Object.Destroy(popUp);
+                var popUpTemplate = Object.FindObjectOfType<AnnouncementPopUp>(true);
+                popUp = Object.Instantiate(popUpTemplate);
 
-            // Fetch the news from the URL
-            var request = UnityWebRequest.Get(ModNewsURL);
-            yield return request.SendWebRequest();
+                popUp.gameObject.SetActive(true);
+                string creditsString = @$"<align=""center""><b>Creator:</b>
+Angel.lol";
+                creditsString += $@"
+<b>Credits:</b>
+Thank you for playing the TOR-W: Launchpad mod! It makes me happy and makes me want to add many more stuff to the mod!
+<b>Thanks for the support! <3</b>
+</align>";
+                creditsString += "</align>";
 
-            if (request.isNetworkError || request.isHttpError)
-            {
-                Logger.Error("Failed to load mod news, falling back to local news.", "ModNews");
-                LoadModNewsFromResources();
-                yield break;
-            }
-
-            try
-            {
-                using var jsonDocument = JsonDocument.Parse(request.downloadHandler.text);
-                var newsArray = jsonDocument.RootElement.GetProperty("News");
-
-                foreach (var newsElement in newsArray.EnumerateArray())
+                Assets.InnerNet.Announcement creditsAnnouncement = new()
                 {
-                    var number = int.Parse(newsElement.GetProperty("Number").GetString());
-                    var title = newsElement.GetProperty("Title").GetString();
-                    var subtitle = newsElement.GetProperty("Subtitle").GetString();
-                    var shortTitle = newsElement.GetProperty("Short").GetString();
-                    var body = newsElement.GetProperty("Body").EnumerateArray().ToStringEnumerable().ToString();
-                    var dateString = newsElement.GetProperty("Date").GetString();
+                    Id = "torCredits",
+                    Language = 0,
+                    Number = 500,
+                    Title = "TOR-W: L\nCredits",
+                    ShortTitle = "TOR-W: L Credits",
+                    SubTitle = "",
+                    PinState = false,
+                    Date = "04.27.2025",
+                    Text = creditsString,
+                };
+                __instance.StartCoroutine(Effects.Lerp(0.1f, new Action<float>((p) =>
+                {
+                    if (p == 1)
+                    {
+                        var backup = DataManager.Player.Announcements.allAnnouncements;
+                        DataManager.Player.Announcements.allAnnouncements = new();
+                        popUp.Init(false);
+                        DataManager.Player.Announcements.SetAnnouncements(new Announcement[] { creditsAnnouncement });
+                        popUp.CreateAnnouncementList();
+                        popUp.UpdateAnnouncementText(creditsAnnouncement.Number);
+                        popUp.visibleAnnouncements._items[0].PassiveButton.OnClick.RemoveAllListeners();
+                        DataManager.Player.Announcements.allAnnouncements = backup;
+                    }
+                })));
+            });
 
-                    // Add the news to the mod news list
-                    new ModNews(number, title, subtitle, shortTitle, body, dateString);
-                }
-            }
-            catch (Exception ex)
-            {
-                Logger.Exception(ex, "ModNews");
-                Logger.Error("Failed to parse mod news, loading from local resources.", "ModNews");
-                LoadModNewsFromResources();
-            }
         }
-
-        __result = Effects.Sequence(FetchBlacklist().WrapToIl2Cpp(), __result);
     }
 }

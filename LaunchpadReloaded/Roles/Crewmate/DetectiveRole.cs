@@ -7,13 +7,13 @@ using UnityEngine;
 
 namespace LaunchpadReloaded.Roles.Crewmate;
 
-public class DetectiveRole(IntPtr ptr) : CrewmateRole(ptr), ICustomRole
+public class DetectiveRole(IntPtr ptr) : RoleBehaviour(ptr), ICrewmateRole
 {
     public string RoleName => "Detective";
     public string RoleDescription => "Investigate and find clues on murders.";
     public string RoleLongDescription => "Investigate bodies to get clues and use your instinct ability\nto see recent footsteps around you!";
     public Color RoleColor => LaunchpadPalette.DetectiveColor;
-    public ModdedRoleTeams Team => ModdedRoleTeams.Crewmate;
+    public override bool IsDead => false;
     public CustomRoleConfiguration Configuration => new(this)
     {
         Icon = LaunchpadAssets.InvestigateButton,
