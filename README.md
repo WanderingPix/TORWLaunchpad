@@ -9,6 +9,7 @@
 Launchpad is a mod for Among Us that adds in brand new roles, features, and gamemodes! It is designed so that the roles and features stay somewhat consistent with the original game and don't feel out of place!
 
 ## 🌟 Features
+**MOST OF THESE ARE FROM THE BASE MOD**
 You can read about all of the features on the [wiki](https://launchpad.xtracube.dev/), but here are a couple of them:
 
 - ✅ Gradient Colors
@@ -24,7 +25,6 @@ You can read about all of the features on the [wiki](https://launchpad.xtracube.
 
 ## 📥 Installation
 
-- 🚀 Download the latest version using the Launcher app (available in our [Discord](https://discord.gg/FYYqJU2bvp) server).
 - 🛠️ For manual installation, you must also download:
   
   - Unity.Il2Cpp win-x86 BepInEx build
