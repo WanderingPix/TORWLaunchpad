@@ -24,10 +24,4 @@ public class GameModifierOptions : AbstractOptionGroup
     
     [ModdedNumberOption("Flash Chance", 0f, 100f, 10f, suffixType: MiraNumberSuffixes.Percent)]
     public float FlashChance { get; set; } = 0f;
-    
-    [ModdedNumberOption("Depressed Chance", 0f, 100f, 10f, suffixType: MiraNumberSuffixes.Percent)]
-    public float DepressedChance { get; set; } = 0f;
-    
-    [ModdedNumberOption("Torch Chance", 0f, 100f, 10f, suffixType: MiraNumberSuffixes.Percent)]
-        public float TorchChance { get; set; } = 0f;
 }

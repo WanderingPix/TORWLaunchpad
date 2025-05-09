@@ -11,8 +11,8 @@ namespace LaunchpadReloaded.Roles.Neutral;
 public class NeutralKillerRole(System.IntPtr ptr) : RoleBehaviour(ptr), INeutralRole
 {
     public string RoleName => "Neutral Killer";
-    public string RoleDescription => "Neutral who can kill.";
-    public string RoleLongDescription => RoleDescription;
+    public string RoleDescription => "Neutral who can kill.\nThis is just a template role, it does nothing at this point, but will in the future.";
+    public string RoleLongDescription => "This is just a template role, it does nothing at this point, but will in the future.";
     public Color RoleColor => LaunchpadPalette.NeutralKillerColor;
     public override bool IsDead => false;
 
